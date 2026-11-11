@@ -10,7 +10,6 @@ from status_tools import StatusTools
 
 
 def run(question, mode, provider_name, model, max_steps, fail=False, bonus=False):
-    print("Provider:", provider_name, "model:", model)
     provider = Provider(provider_name, model)
     tools = BonusTools(mode) if bonus else StatusTools(mode, fail=fail)
     return run_agent(question, provider, tools, max_steps=max_steps)
