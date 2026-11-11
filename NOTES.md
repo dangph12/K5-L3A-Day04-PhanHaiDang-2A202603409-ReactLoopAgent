@@ -84,3 +84,5 @@ Trace cho thấy công cụ chỉ tìm trong 50 sự cố gần đây nhất. Sn
 - Điểm do judge chấm có thể biến động và không phản ánh đầy đủ mọi khía cạnh về tính đúng đắn; cần đọc câu trả lời và trace để hiểu nguyên nhân điểm.
 - Snapshot chỉ ghi nhận dữ liệu tại thời điểm lấy mẫu và công cụ tìm kiếm bị giới hạn ở 50 sự cố gần nhất. Do đó, kết quả không chứng minh được danh sách lịch sử đầy đủ hoặc việc không có sự cố cũ hơn.
 - Mỗi phiên bản mới chỉ chạy một lần thì chưa đủ để kết luận cải tiến ổn định hay điểm giảm là do thay đổi trong `agent.py`; kết quả có thể chịu ảnh hưởng của độ biến động từ model hoặc judge.
+- Xử lý lỗi 429 theo Retry-After, tối đa 3 lần thực thi mỗi thao tác và tổng thời gian chờ 10 giây. Bản sửa mới yêu cầu model retry trước khi kết thúc nếu còn budget.
+- Hỗ trợ phân trang timeline, lược bỏ dữ liệu nhiễu khỏi observation và bổ sung URL nguồn còn thiếu
