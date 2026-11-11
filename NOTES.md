@@ -65,7 +65,7 @@ Trace cho thấy công cụ chỉ tìm trong 50 sự cố gần đây nhất. Sn
 
 ## 3. Thay đổi đã thực hiện
 
-- Trong `agent.py`, system prompt nêu rõ giới hạn 50 sự cố và yêu cầu không khẳng định dữ liệu bao quát toàn bộ lịch sử hoặc kết luận không có sự cố cũ hơn.
+- Trong `agent.py`, system prompt nêu rõ giới hạn 50 sự cố và yêu cầu không khẳng định dữ liệu bao quát toàn bộ lịch sử hoặc kết luận không có sự cố cũ hơn. Bổ sung vào system prompt giới hạn tìm kiếm trong 50 sự cố gần nhất.
 
 ## 4. So sánh hai lần chạy
 
