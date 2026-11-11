@@ -86,7 +86,6 @@ def run_agent(question, provider, tools, max_steps=6):
                 content = message.get("content")
                 answer = content if isinstance(content, str) else ""
                 missing = [url for url in incident_urls if url not in answer]
-                missing += [url for url in sources.values() if url not in answer]
                 if missing:
                     trace.append({"event": "validation_missing_source", "step": step})
                     messages.append(
@@ -100,6 +99,11 @@ def run_agent(question, provider, tools, max_steps=6):
                         }
                     )
                     continue
+                missing_sources = sorted(
+                    {url for url in sources.values() if url not in answer}
+                )
+                if missing_sources:
+                    answer += "\n\nNguồn: " + ", ".join(missing_sources)
                 return {
                     "status": "completed",
                     "answer": answer,
